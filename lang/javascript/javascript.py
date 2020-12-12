@@ -1,21 +1,27 @@
-from talon import Module, Context, actions, ui, imgui, settings
+from talon import Context, actions, settings
 
 ctx = Context()
 ctx.matches = r"""
 mode: user.javascript
-mode: command 
+mode: command
 and code.language: javascript
+mode: command
+and code.language: javascript-react
 """
-# tbd
-# ctx.lists["user.code_functions"] = {
-#     "integer": "int.TryParse",
-#     "print": "Console.WriteLine",
-#     "string": ".ToString",
-# }
-
 
 @ctx.action_class("user")
 class user_actions:
+    def code_insert_class(name: str):
+        result = "class {} {{}}".format(
+            actions.user.formatted_text(
+                name, settings.get("user.code_class_name_formatter")
+            )
+        )
+
+        actions.user.paste(result)
+        actions.edit.left()
+        actions.key("enter")
+
     def code_insert_function(text: str, selection: str):
         if selection:
             text = text + "({})".format(selection)

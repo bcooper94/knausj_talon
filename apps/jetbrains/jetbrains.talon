@@ -3,7 +3,7 @@ app: jetbrains
 -
 tag(): user.line_commands
 tag(): user.multiple_cursors
-tag(): user.splits 
+tag(): user.splits
 tag(): user.tabs
 
 #talon app actions (+custom tab actions)
@@ -258,10 +258,10 @@ continue: user.idea("action Resume")
 # Movement
 go next (error | air): user.idea("action GotoNextError")
 go last (error | air): user.idea("action GotoPreviousError")
-fix next (error | air): 
+fix next (error | air):
   user.idea("action GotoNextError")
   user.idea("action ShowIntentionActions")
-fix last (error | air): 
+fix last (error | air):
   user.idea("action GotoPreviousError")
   user.idea("action ShowIntentionActions")
 # Special Selects

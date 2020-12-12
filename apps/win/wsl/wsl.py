@@ -12,7 +12,7 @@ ctx = Context()
 ctx.matches = r"""
 app: ubuntu
 app: windows_terminal
-and win.title: /Ubuntu/ 
+and win.title: /Ubuntu/
 """
 directories_to_remap = {}
 directories_to_exclude = {}

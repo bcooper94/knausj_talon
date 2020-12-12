@@ -3,8 +3,10 @@ from talon import Module, Context, actions, ui, imgui, settings
 ctx = Context()
 ctx.matches = r"""
 mode: user.typescript
-mode: command 
+mode: command
 and code.language: typescript
+mode: command
+and code.language: typescript-react
 """
 # tbd
 # ctx.lists["user.code_functions"] = {
@@ -16,6 +18,17 @@ and code.language: typescript
 
 @ctx.action_class("user")
 class user_actions:
+    def code_insert_class(name: str):
+        result = "class {} {{}}".format(
+            actions.user.formatted_text(
+                name, settings.get("user.code_class_name_formatter")
+            )
+        )
+
+        actions.user.paste(result)
+        actions.edit.left()
+        actions.key("enter")
+
     def code_insert_function(text: str, selection: str):
         if selection:
             text = text + "({})".format(selection)

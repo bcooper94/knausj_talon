@@ -23,7 +23,7 @@ class win_actions:
         # this doesn't seem to be necessary on VSCode for Mac
         # if title == "":
         #    title = ui.active_window().doc
-        
+
         if " - " in title:
             result = title.split(" - ")[1]
         else:

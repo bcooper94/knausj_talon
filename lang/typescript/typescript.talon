@@ -1,6 +1,8 @@
 mode: user.typescript
 mode: command
 and code.language: typescript
+mode: command
+and code.language: typescript-react
 -
 tag(): user.code_operators
 tag(): user.code_comment
@@ -13,6 +15,11 @@ settings():
     user.code_private_variable_formatter = "PRIVATE_CAMEL_CASE"
     user.code_protected_variable_formatter = "PRIVATE_CAMEL_CASE"
     user.code_public_variable_formatter = "PRIVATE_CAMEL_CASE"
+    user.code_class_name_formatter = "PUBLIC_CAMEL_CASE"
+
+action(user.code_line_end):
+  edit.line_end()
+  insert(";")
 
 action(user.code_is_not_null): " !== null"
 

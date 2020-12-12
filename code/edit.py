@@ -15,6 +15,16 @@ class edit_actions:
         except clip.NoChange:
             return ""
 
+    # TODO: Figure out how to get this working
+    # def insert_cursor(text: str):
+    #     """Insert a string. Leave the cursor wherever [|] is in the text"""
+    #     if "[|]" in text:
+    #         end_pos = text.find("[|]")
+    #         s = text.replace("[|]", "")
+    #         actions.insert(s)
+    #         actions.key(f"left:{len(s) - end_pos}")
+    #     else:
+    #         actions.insert(text)
 
 @mod.action_class
 class Actions:

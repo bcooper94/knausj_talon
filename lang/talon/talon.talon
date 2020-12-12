@@ -11,7 +11,7 @@ action(user.code_operator_addition): " + "
 action(user.code_operator_multiplication): " * "
 action(user.code_operator_division): " / "
 action(user.code_operator_assignment): " = "
-action(user.code_comment): "#"
+action(user.code_comment): "# "
 
 dot talon: insert(".talon")
 #defintion blocks for the context
@@ -32,10 +32,17 @@ title require:
 	insert("win.title: ")
 app require:
 	insert("app: ")
+app set:
+	insert("app(): ")
 tag require:
 	insert("tag: ")
 tag set:
 	insert("tag(): ")
+
+create command <user.text>:
+	insert(text)
+	insert(":")
+
 #commands for dictating key combos
 key <user.keys> over: "{keys}"
 key <user.modifiers> over: "{modifiers}"

@@ -70,7 +70,7 @@ and app.name: cmd.exe
 
 apps.windows_terminal = """
 os: windows
-and app.name: WindowsTerminal.exe 
+and app.name: WindowsTerminal.exe
 """
 
 mod.apps.windows_power_shell = """

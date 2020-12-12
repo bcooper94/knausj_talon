@@ -26,3 +26,12 @@ class user_actions:
             actions.key("cmd-9")
         else:
             actions.key("ctrl-9")
+
+@ctx.action_class("app")
+class app_actions:
+    def tab_next():
+        actions.key("ctrl-pagedown")
+
+    def tab_previous():
+        actions.key("ctrl-pageup")
+

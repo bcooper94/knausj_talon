@@ -122,6 +122,10 @@ formatters_dict = {
         NOSEP,
         first_vs_rest(lambda w: w.lower(), lambda w: "_" + w.lower()),
     ),
+    "CAP_SNAKE_CASE": (
+        NOSEP,
+        first_vs_rest(lambda w: w.upper(), lambda w: "_" + w.upper())
+    ),
     "NO_SPACES": (NOSEP, every_word(lambda w: w)),
     "DASH_SEPARATED": words_with_joiner("-"),
     "TERMINAL_DASH_SEPARATED": (

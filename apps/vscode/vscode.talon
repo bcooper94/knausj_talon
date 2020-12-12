@@ -19,6 +19,7 @@ action(app.window_open): user.vscode("workbench.action.newWindow")
 action(code.toggle_comment): user.vscode("editor.action.commentLine")
 
 #talon edit actions
+action(edit.find): user.vscode("actions.find")
 action(edit.indent_more): user.vscode("editor.action.indentLines")
 action(edit.indent_less): user.vscode("editor.action.outdentLines")
 action(edit.save_all): user.vscode("workbench.action.files.saveAll")
@@ -26,7 +27,7 @@ action(edit.save_all): user.vscode("workbench.action.files.saveAll")
 # splits.py support begin
 action(user.split_clear_all): user.vscode("View: Single Column Editor Layout")
 action(user.split_clear): user.vscode("View: Join Editor Group with Next Group")
-action(user.split_flip): user.vscode("View: Toggle Vertical/Horizontal Editor Layout") 
+action(user.split_flip): user.vscode("View: Toggle Vertical/Horizontal Editor Layout")
 action(user.split_last): user.vscode("View: Focus Previous Editor Group")
 action(user.split_next):  user.vscode("View: Focus Next Editor Group")
 action(user.split_window_down): user.vscode("workbench.action.moveEditorToBelowGroup")
@@ -50,7 +51,12 @@ action(user.multi_cursor_select_fewer_occurrences): user.vscode("Cursor Undo")
 action(user.multi_cursor_select_more_occurrences): user.vscode("Add Selection To Next Find Match")
 #multiple_cursor.py support end
 
-please [<user.text>]: 
+workspace close: user.vscode("Workspaces: Close Workspace")
+workspace hunt [<user.text>]:
+  key(ctrl-r)
+  insert(text or "")
+
+please [<user.text>]:
   user.vscode("Show All Commands")
   insert(user.text or "")
 
@@ -60,7 +66,7 @@ bar extensions: user.vscode("workbench.view.extensions")
 bar outline: user.vscode("outline.focus")
 bar run: user.vscode("workbench.view.debug")
 bar search: user.vscode("workbench.view.search")
-bar source: user.vscode("workbench.view.scm")
+bar source control: user.vscode("workbench.scm.focus")
 bar switch: user.vscode("workbench.action.toggleSidebarVisibility")
 
 # Panels
@@ -68,7 +74,11 @@ panel control: user.vscode("workbench.panel.repl.view.focus")
 panel output: user.vscode("workbench.panel.output.focus")
 panel problems: user.vscode("workbench.panel.markers.view.focus")
 panel switch: user.vscode("workbench.action.togglePanel")
-panel terminal: user.vscode("workbench.panel.terminal.focus")
+panel size: user.vscode("View: Toggle Maximized Panel")
+terminal focus: user.vscode("workbench.action.terminal.focus")
+terminal new: user.vscode("workbench.action.terminal.new")
+terminal next: user.vscode("workbench.action.terminal.focusNext")
+terminal last: user.vscode("workbench.action.terminal.focusPrevious")
 
 # Settings
 show settings: user.vscode("workbench.action.openGlobalSettings")
@@ -82,21 +92,24 @@ theme switch: user.vscode("workbench.action.selectTheme")
 wrap switch: user.vscode("editor.action.toggleWordWrap")
 zen switch: user.vscode("workbench.action.toggleZenMode")
 
+group close: user.vscode("workbench.action.closeEditorsInGroup")
+group others close: user.vscode("View: Close Other Editors In Group")
+
 # File Commands
-file hunt [<user.text>]: 
+file hunt [<user.text>]:
   user.vscode("Go to File")
   sleep(50ms)
   insert(text or "")
-file copy path: user.vscode_ignore_clipboard("File: Copy Path of Active File") 
-file create sibling: user.vscode("File: New File")  
+file copy path: user.vscode_ignore_clipboard("File: Copy Path of Active File")
+file create sibling: user.vscode("File: New File")
 file create: user.vscode("File: New Untitled File")
 file open folder: user.vscode("File: Reveal in File Explorer")
 #todo: rename isn't working.
-#file rename active: 
+#file rename active:
 #  user.vscode("File: Reveal Active File In Side Bar")
 #  user.vscode("renameFile")
 #file rename: user.vscode("renameFile")
-file reveal: user.vscode("File: Reveal Active File In Side Bar") 
+file reveal: user.vscode("File: Reveal Active File In Side Bar")
 
 # Language Features
 suggest show: user.vscode("editor.action.triggerSuggest")
@@ -120,9 +133,9 @@ refactor rename: user.vscode("editor.action.rename")
 refactor this: user.vscode("editor.action.refactor")
 
 #code navigation
-(go declaration | follow): user.vscode("Go to Declaration")
-go back: user.vscode("workbench.action.navigateBack") 
-go forward:  user.vscode("workbench.action.navigateForward")  
+(go declaration | follow): key(f12)
+go back: user.vscode("workbench.action.navigateBack")
+go forward:  user.vscode("workbench.action.navigateForward")
 go implementation: user.vscode("Go to Implementation")
 go recent: user.vscode("File: Open Recent")
 go type: user.vscode("editor.action.goToTypeDefinition")
@@ -147,6 +160,9 @@ fold comments: user.vscode("editor.foldAllBlockComments")
 git branch: user.vscode("git.branchFrom")
 git branch this: user.vscode("git.branch")
 git checkout: user.vscode("git.checkout")
+git add <number> until <number>:
+  user.select_range(number_1, number_2)
+  user.vscode("git.stageSelectedRange")
 git commit: user.vscode("git.commitStaged")
 git commit undo: user.vscode("git.undoCommit")
 git commit ammend: user.vscode("git.commitStagedAmend")
@@ -192,8 +208,8 @@ terminal scroll down: user.vscode("Terminal:ScrollDown")
 copy line down: user.vscode("editor.action.copyLinesDownAction")
 copy line up: user.vscode("editor.action.copyLinesUpAction")
 
+line delete: user.vscode("editor.action.deleteLines")
+
 #Expand/Shrink AST Selection
 select less: user.vscode("editor.action.smartSelect.shrink")
 select (more|this): user.vscode("editor.action.smartSelect.expand")
-  
-  

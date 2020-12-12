@@ -14,7 +14,7 @@ kill all:
   key(ctrl-c)
   insert("y")
   key(enter)
-  
+
 action(user.file_manager_refresh_title):
 	insert("title Command Prompt: %CD%")
 	key(enter)

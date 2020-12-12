@@ -136,9 +136,18 @@ ctx.lists["user.python_exception"] = {
     for exception in exception_list
 }
 
-
 @ctx.action_class("user")
 class user_actions:
+    def code_insert_class(name: str):
+        result = "class {}:".format(
+            actions.user.formatted_text(
+                name, settings.get("user.code_class_name_formatter")
+            )
+        )
+
+        actions.user.paste(result)
+        actions.edit.enter()
+
     def code_insert_function(text: str, selection: str):
         if selection:
             text = text + "({})".format(selection)
@@ -158,7 +167,6 @@ class user_actions:
         actions.user.paste(result)
         actions.edit.left()
         actions.edit.left()
-
     def code_public_function(text: str):
         result = "def {}():".format(
             actions.user.formatted_text(

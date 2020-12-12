@@ -16,6 +16,8 @@ setting_protected_variable_formatter = mod.setting(
     "code_protected_variable_formatter", str
 )
 setting_public_variable_formatter = mod.setting("code_public_variable_formatter", str)
+setting_class_name_formatter = mod.setting("code_class_name_formatter", str)
+setting_self_operator = mod.setting("code_self_operator", str)
 
 mod.tag("code_comment", desc="Tag for enabling generic comment commands")
 mod.tag("code_block_comment", desc="Tag for enabling generic block comment commands")
@@ -37,22 +39,29 @@ extension_lang_map = {
     "cs": "csharp",
     "gdb": "gdb",
     "go": "go",
+    "html": "html",
+    "htm": "html",
     "h": "c",
     "hpp": "cplusplus",
     "js": "javascript",
+    "jsx": "javascript-react",
     "json": "json",
     "lua": "lua",
     "md": "markdown",
+    "php": "php",
+    "phtml": "phtml",
     "pl": "perl",
     "ps1": "powershell",
     "py": "python",
     "r": "r",
     "rb": "ruby",
+    "rs": "rust",
     "s": "assembly",
     "sh": "bash",
     "snippets": "snippets",
     "talon": "talon",
     "ts": "typescript",
+    "tsx": "typescript-react",
     "vba": "vba",
     "vim": "vimscript",
     "vimrc": "vimscript",
@@ -60,7 +69,6 @@ extension_lang_map = {
 
 # flag indicates whether or not the title tracking is enabled
 forced_language = False
-
 
 @mod.capture(rule="{user.code_functions}")
 def code_functions(m) -> str:
@@ -124,6 +132,9 @@ class Actions:
         for __, lang in extension_lang_map.items():
             actions.mode.disable("user.{}".format(lang))
         # app.notify("Cleared language modes")
+
+    def code_line_end():
+        """code_line_end"""
 
     def code_operator_indirection():
         """code_operator_indirection"""
@@ -238,6 +249,9 @@ class Actions:
 
     def code_self():
         """Inserts the equivalent of "this" in C++ or self in python"""
+
+    def code_self_dot():
+        """Inserts the equivalent of "this." in C++ or self. in python, etc."""
 
     def code_null():
         """inserts null equivalent"""
@@ -365,6 +379,14 @@ class Actions:
             )
         )
 
+    def code_class_name_formatter(name: str):
+        """inserts properly formatted class name"""
+        actions.insert(
+            actions.user.formatted_text(
+                name, settings.get("user.code_class_name_formatter")
+            )
+        )
+
     def code_comment():
         """Inserts comment at current cursor location"""
 
@@ -403,6 +425,9 @@ class Actions:
 
     def code_from_import():
         """from import python equivalent"""
+
+    def code_insert_class(name: str):
+        """Inserts a class"""
 
     def code_toggle_functions():
         """GUI: List functions for active language"""

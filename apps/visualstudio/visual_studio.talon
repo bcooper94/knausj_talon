@@ -46,19 +46,19 @@ panel breakpoints: key(ctrl-alt-b)
 
 # Settings
 show settings: key(alt-t o)
-#show shortcuts: 
-#show snippets: 
+#show shortcuts:
+#show snippets:
 
 # Display
 fullscreen switch: key(shift-alt-enter)
 wrap switch: key(ctrl-e ctrl-w)
 
 # File Commands
-file hunt [<user.text>]: 
+file hunt [<user.text>]:
     key(ctrl-shift-t)
     insert(text or "")
 file create: key(ctrl-n)
-#file open folder: 
+#file open folder:
 file rename: key(ctrl-[ s f2)
 file reveal: key(ctrl-[ s)
 
@@ -71,9 +71,9 @@ format that: key(ctrl-k ctrl-d)
 format selection: key(ctrl-k ctrl-f)
 imports fix: key(ctrl-r ctrl-g)
 
-# problem next: 
-# problem last: 
-# problem fix: 
+# problem next:
+# problem last:
+# problem fix:
 refactor field: key(ctrl-r ctrl-e)
 refactor interface: key(ctrl-r ctrl-i)
 refactor method: key(ctrl-r ctrl-m)
@@ -86,15 +86,15 @@ refactor that: key(ctrl-r ctrl-r)
 go back: key(ctrl--)
 go forward: key(ctrl-shift--)
 go implementation: key(f12)
-go recent [<user.text>]: 
+go recent [<user.text>]:
     key(ctrl-1 ctrl-r)
     sleep(100ms)
     insert(text or "")
-go type [<user.text>]: 
+go type [<user.text>]:
     key(ctrl-1 ctrl-t)
     sleep(100ms)
     insert(text or "")
-go member [<user.text>]: 
+go member [<user.text>]:
     key(alt-\)
     sleep(100ms)
     insert(text or "")
@@ -119,4 +119,4 @@ debug step out [of]: key(f10)
 debug start: key(f5)
 debug stopper: key(shift-f5)
 debug continue: key(f5)
-#debug restart: 
+#debug restart:

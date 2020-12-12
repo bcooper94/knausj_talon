@@ -1,5 +1,7 @@
 tag: user.code_operators
 -
+op comma: ", "
+
 #pointer operators
 op dereference: user.code_operator_indirection()
 op address of: user.code_operator_address_of()
@@ -53,4 +55,4 @@ op mod equals: user.code_operator_modulo_assignment()
 [(op | logical | bitwise)] (left right | shift right) equals: user.code_operator_bitwise_right_shift_equals()
 
 #tbd
-(op | pad) colon: " : "
+(op | pad) colon: ": "

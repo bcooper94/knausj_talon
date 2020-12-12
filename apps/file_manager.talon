@@ -14,23 +14,23 @@ go user: user.file_manager_open_directory(path.user_home())
 go back: user.file_manager_go_back()
 go forward: user.file_manager_go_forward()
 daddy: user.file_manager_open_parent()
-^follow <number>$: 
+^follow <number>$:
     directory = user.file_manager_get_directory_by_index(number - 1)
     user.file_manager_open_directory(directory)
 ^follow {user.file_manager_directories}$: user.file_manager_open_directory(file_manager_directories)
-^open <number>$: 
+^open <number>$:
     file = user.file_manager_get_file_by_index(number - 1)
     user.file_manager_open_file(file)
-^folder <number>$: 
+^folder <number>$:
     directory = user.file_manager_get_directory_by_index(number - 1)
     user.file_manager_select_directory(directory)
-^file <number>$: 
+^file <number>$:
     file = user.file_manager_get_file_by_index(number - 1)
     user.file_manager_select_file(file)
 ^file {user.file_manager_files}$: user.file_manager_select_file(file_manager_files)
 
 #new folder
-folder new <user.text>: 
+folder new <user.text>:
     user.file_manager_new_folder(text)
 
 #show properties

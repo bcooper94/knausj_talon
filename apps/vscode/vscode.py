@@ -220,7 +220,7 @@ class user_actions:
     def select_next_occurrence(text: str):
         actions.edit.find(text)
         actions.sleep("100ms")
-        actions.key("esc")
+        actions.key("enter esc")
 
     # find_and_replace.py support end
 

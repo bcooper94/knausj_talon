@@ -16,6 +16,9 @@ settings():
     # whether or not to use uint_8 style datatypes
     #    user.use_stdint_datatypes = 1
 
+action(user.code_line_end):
+    edit.line_end()
+    insert(";")
 
 action(user.code_operator_indirection): "*"
 action(user.code_operator_address_of): "&"

@@ -1,8 +1,9 @@
-question [mark]: "?"
+p1question [mark]: "?"
 (downscore | underscore): "_"
 double dash: "--"
 (bracket | brack | left bracket): "{"
 (rbrack | are bracket | right bracket): "}"
+single quote: "'"
 triple quote: "'''"
 (dot dot | dotdot): ".."
 #ellipses: "…"
@@ -28,34 +29,45 @@ empty escaped string:
     "\\'\\'"
     key(left)
     key(left)
+inside backticks:
+    insert("``")
+    key(left)
 (inside parens | args):
 	insert("()")
 	key(left)
-inside (squares | list): 
-	insert("[]") 
+inside (squares | list):
+	insert("[]")
 	key(left)
-inside (bracket | braces): 
-	insert("{}") 
+inside (bracket | braces):
+	insert("{}")
 	key(left)
-inside percent: 
-	insert("%%") 
-	key(left)
+inside percent:
+	insert("%%")
+    key(left)
+inside single quotes:
+    insert("''")
+    key(left)
 inside quotes:
 	insert('""')
-	key(left)
-angle this: 
+    key(left)
+inside angle:
+    insert("<>")
+    key(left)
+angle this:
     text = edit.selected_text()
     user.paste("<{text}>")
-(bracket | brace) this: 
+(bracket | brace) this:
     text = edit.selected_text()
     user.paste("{{{text}}}")
-(parens | args) this: 
+(parens | args) this:
     text = edit.selected_text()
     user.paste("({text})")
-percent this: 
+square this:
+    text = added.selected_text()
+    user.paste("[{text}]")
+percent this:
     text = edit.selected_text()
     user.paste("%{text}%")
 quote this:
     text = edit.selected_text()
     user.paste('"{text}"')
-

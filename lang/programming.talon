@@ -2,6 +2,8 @@ tag: user.code_generic
 -
 block: user.code_block()
 
+state lend: user.code_line_end()
+
 #todo should we have a keyword list? type list capture? stick with "word"?
 #state in: insert(" in ")
 is not (none|null): user.code_is_not_null()
@@ -14,9 +16,7 @@ state else: user.code_state_else()
 state self: user.code_self()
 #todo: this is valid for many languages,
 # but probably not all
-self dot:
-    user.code_self()
-    insert(".")
+(self | this) dot: user.code_self_dot()
 state while: user.code_state_while()
 state for: user.code_state_for()
 state for in: user.code_state_for_each()
@@ -27,7 +27,7 @@ state goto: user.code_state_go_to()
 state return: user.code_state_return()
 state import: user.code_import()
 from import: user.code_from_import()
-state class: user.code_type_class()
+state class <user.text>: user.code_insert_class(text)
 state include: user.code_include()
 state include system: user.code_include_system()
 state include local: user.code_include_local()
