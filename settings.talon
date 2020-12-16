@@ -1,5 +1,7 @@
 -
 settings():
+    # (unstable) minimum silence time (in seconds) before speech is cut off, default 0.150
+    speech.timeout = 0.200
     #adjust the scale of the imgui to my liking
     imgui.scale = 1.3
     # enable if you'd like the picker gui to automatically appear when explorer has focus
