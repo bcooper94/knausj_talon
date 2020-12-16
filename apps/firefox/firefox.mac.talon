@@ -76,3 +76,6 @@ action(browser.toggle_dev_tools):
 
 browser tree:
 	key(f1)
+
+# Requires tab search extension
+browser tab search: key(shift-cmd-l)
