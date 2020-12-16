@@ -14,6 +14,8 @@ action(app.tab_previous): user.vscode("workbench.action.previousEditorInGroup")
 action(app.tab_reopen): user.vscode("workbench.action.reopenClosedEditor")
 action(app.window_close): user.vscode("workbench.action.closeWindow")
 action(app.window_open): user.vscode("workbench.action.newWindow")
+action(app.window_next): user.vscode("workbench.action.switchWindow")
+action(app.window_previous): user.vscode("workbench.action.switchWindow")
 
 #talon code actions
 action(code.toggle_comment): user.vscode("editor.action.commentLine")
