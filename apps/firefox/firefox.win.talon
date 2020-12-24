@@ -13,7 +13,7 @@ action(browser.bookmark_tabs):
 	key(ctrl-shift-d)
 
 action(browser.bookmarks):
-	key(ctrl-shift-b)
+	key(ctrl-shift-o)
 
 #action(browser.bookmarks_bar):
 #	key(ctrl-shift-b)
