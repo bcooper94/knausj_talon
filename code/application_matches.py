@@ -11,6 +11,11 @@ os: mac
 and app.name: DataGrip
 """
 
+apps.sequel_pro = """
+os: mac
+and app.name: Sequel Pro
+"""
+
 apps.finder = """
 os: mac
 and app.bundle: com.apple.finder
