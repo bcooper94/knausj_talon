@@ -102,7 +102,7 @@ file hunt [<user.text>]:
   user.vscode("Go to File")
   sleep(50ms)
   insert(text or "")
-file copy path: user.vscode_ignore_clipboard("File: Copy Path of Active File")
+file copy path: user.vscode_ignore_clipboard("File: Copy Relative Path of Active File")
 file create sibling: user.vscode("File: New File")
 file create: user.vscode("File: New Untitled File")
 file open folder: user.vscode("File: Reveal in File Explorer")
@@ -211,7 +211,11 @@ copy line down: user.vscode("editor.action.copyLinesDownAction")
 copy line up: user.vscode("editor.action.copyLinesUpAction")
 
 line delete: user.vscode("editor.action.deleteLines")
+line join: user.vscode("editor.action.joinLines")
 
 #Expand/Shrink AST Selection
 select less: user.vscode("editor.action.smartSelect.shrink")
 select (more|this): user.vscode("editor.action.smartSelect.expand")
+
+# TODO: this should probably be a generic editor command
+go match: key(shift-cmd-\)
