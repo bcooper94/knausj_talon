@@ -1,15 +1,14 @@
 app: datagrip
-
+app: sequel_pro
 -
 select: "SELECT "
-star: "*"
+star: "* "
 from: "FROM "
 select star from: "SELECT * FROM "
 where: "WHERE "
 order by: "ORDER BY "
 descending: " DESC"
 ascending: " ASC"
-dot i d: ".id"
 is not null: " IS NOT NULL"
 is null: " IS NULL"
 inner join:
@@ -17,4 +16,9 @@ inner join:
     key(left)
     key(left)
     key(left)
+    key(left)
+join: insert("JOIN ")
+on: insert("ON ")
+using:
+    insert("USING ()")
     key(left)
