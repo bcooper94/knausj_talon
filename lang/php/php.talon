@@ -155,6 +155,12 @@ state name speck fix:
 state const: "const "
 state spread: "..."
 
+state dock comment: "/**"
+
+state new <user.text>:
+  insert("new ")
+  user.code_class_name_formatter(text)
+
 very <user.text>:
   insert("$")
   user.code_private_variable_formatter(text)
