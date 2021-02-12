@@ -112,7 +112,7 @@ file open folder: user.vscode("File: Reveal in File Explorer")
 #  user.vscode("renameFile")
 #file rename: user.vscode("renameFile")
 file reveal: user.vscode("File: Reveal Active File In Side Bar")
-file relative path: user.vscode("copyRelativeFilePath")
+file path: user.vscode("copyRelativeFilePath")
 file absolute path: user.vscode("copyFilePath")
 
 # Language Features
