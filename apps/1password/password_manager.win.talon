@@ -5,10 +5,10 @@ os: windows
 #the below are for 1password, redefine as needed
 -
 action(user.password_fill):
-	key(ctrl-\\)
+	key(ctrl-\)
 
 action(user.password_show):
-	key(alt-ctrl-\\)
+	key(alt-ctrl-\)
 
 action(user.password_new):
 	key(ctrl-n)
