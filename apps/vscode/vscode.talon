@@ -218,6 +218,3 @@ line join: user.vscode("editor.action.joinLines")
 #Expand/Shrink AST Selection
 select less: user.vscode("editor.action.smartSelect.shrink")
 select (more|this): user.vscode("editor.action.smartSelect.expand")
-
-# TODO: this should probably be a generic editor command
-go match: key(shift-cmd-\)

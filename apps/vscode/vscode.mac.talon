@@ -8,3 +8,6 @@ search word: key(alt-cmd-w)
 search symbol [<user.text>]:
     key(cmd-shift-o)
     insert(user.text or "")
+
+# TODO: this should probably be a generic editor command
+go match: key(shift-cmd-\)
