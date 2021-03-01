@@ -71,6 +71,9 @@ bar search: user.vscode("workbench.view.search")
 bar source control: user.vscode("workbench.scm.focus")
 bar switch: user.vscode("workbench.action.toggleSidebarVisibility")
 
+# Tasks
+task build: user.vscode("workbench.action.tasks.build")
+
 # Panels
 panel control: user.vscode("workbench.panel.repl.view.focus")
 panel output: user.vscode("workbench.panel.output.focus")
@@ -180,12 +183,14 @@ git push focus: user.vscode("git.pushForce")
 git rebase abort: user.vscode("git.rebaseAbort")
 git reveal: user.vscode("git.revealInExplorer")
 git revert: user.vscode("git.revertChange")
-git stash: user.vscode("git.stash")
+git stash: user.vscode("git.stashIncludeUntracked")
 git stash pop: user.vscode("git.stashPop")
 git stage: user.vscode("git.stage")
 git stage all: user.vscode("git.stageAll")
 git unstage: user.vscode("git.unstage")
 git unstage all: user.vscode("git.unstageAll")
+
+git pull request: user.vscode("prStatus:github.focus")
 
 #Debugging
 break point: user.vscode("editor.debug.action.toggleBreakpoint")
