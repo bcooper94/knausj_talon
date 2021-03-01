@@ -137,7 +137,7 @@ action(user.code_operator_bitwise_left_shift_assignment): " <<= "
 action(user.code_operator_bitwise_right_shift): " >> "
 action(user.code_operator_bitwise_right_shift_assignment): " >>= "
 
-action(user.code_comment): "//"
+action(user.code_comment): "// "
 action(user.code_block_comment):
     insert("/*")
     key(enter)

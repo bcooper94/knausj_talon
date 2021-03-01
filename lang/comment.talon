@@ -38,4 +38,4 @@ comment <user.text>$:
     insert(user.text)
 comment to do:
     user.code_comment()
-    insert(" TODO: ")
+    insert("TODO: ")
